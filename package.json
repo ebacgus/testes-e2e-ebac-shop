@@ -8,7 +8,7 @@
     "cy:open": "npx cypress open",
     "cy:run": "npx cypress run",
     "cy:dashboard": "",
-    "cy:report": ""
+    "cy:report": "npx cypress run --record --key e926852a-9cfb-4927-9758-c39de8fe02be"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": ""
+    "url": "http://lojaebac.ebaconline.art.br"
   },
   "homepage": "",
   "devDependencies": {

@@ -14,14 +14,14 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
     beforeEach(() => {
         cy.visit('minha-conta')
         cy.fixture('perfil').then(dados => {
-            cy.login('aluno_ebac@teste.com', 'teste@teste.com')
+            cy.login(dados.usuario,dados.senha)
         })
 
     });
 
-    it('Deve fazer um pedido na loja Ebac Shop de ponta a ponta', () => {
+    it.only('Deve fazer um pedido na loja Ebac Shop de ponta a ponta', () => {
 
-        cy.get('.woocommerce-form > .button').click()
+      
         cy.get('#primary-menu > .menu-item-629 > a').click()
         cy.get('[class="product-block grid"]')
             .contains('Ajax Full-Zip Sweatshirt').click()
