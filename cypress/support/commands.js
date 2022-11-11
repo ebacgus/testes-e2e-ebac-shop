@@ -35,16 +35,16 @@ Cypress.Commands.add('login', (usuario, senha, produto) => {
 
 Cypress.Commands.add('adde2e', (produto, tamanho , cor , quantidade) => {  
 
-    
-    cy.get('#primary-menu > .menu-item-629 > a').click()
+                                                                                                                                                                                                                                                                                                                                        
+                                                            
     cy.get('[class="product-block grid"]')
-        cy.contains(produto).click()
+    .contains(produto).click()
         cy.get('.button-variable-item-'+ tamanho).click()
         cy.get('.button-variable-item-'+ cor).click()
         cy.get('.input-text').clear().type(quantidade)
         cy.get('.single_add_to_cart_button').click()
 
-
+ 
 
 })
 
@@ -53,9 +53,9 @@ Cypress.Commands.add('adde2e', (produto, tamanho , cor , quantidade) => {
 Cypress.Commands.add('e2e', (produto, tamanho , cor , quantidade) => {  
 
     
-    cy.get('#primary-menu > .menu-item-629 > a').click()
+    
     cy.get('[class="product-block grid"]')
-        cy.contains(produto).click()
+    cy.contains(produto).click()
         cy.get('.button-variable-item-'+ tamanho).click()
         cy.get('.button-variable-item-'+ cor).click()
         cy.get('.input-text').clear().type(quantidade)
@@ -63,6 +63,19 @@ Cypress.Commands.add('e2e', (produto, tamanho , cor , quantidade) => {
 
     })
 
+
+    Cypress.Commands.add('e2e2', (produto, tamanho , cor , quantidade) => {  
+
+    
+    
+    cy.get('[class="product-block grid"]')
+    cy.contains(produto).click()
+        cy.get('.button-variable-item-'+ tamanho).click()
+        cy.get('.button-variable-item-'+ cor).click()
+        cy.get('.input-text').clear().type(quantidade)
+        cy.get('.single_add_to_cart_button').click()
+
+    })
 
 
 

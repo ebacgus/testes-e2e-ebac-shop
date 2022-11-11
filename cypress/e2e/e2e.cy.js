@@ -14,53 +14,39 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
     beforeEach(() => {
         cy.visit('minha-conta')
         cy.fixture('perfil').then(dados => {
-            cy.login(dados.usuario,dados.senha)
+            cy.login(dados.usuario, dados.senha)
         })
 
     });
 
     it.only('Deve fazer um pedido na loja Ebac Shop de ponta a ponta', () => {
 
-      
+
         cy.get('#primary-menu > .menu-item-629 > a').click()
         cy.get('[class="product-block grid"]')
             .contains('Ajax Full-Zip Sweatshirt').click()
         cy.get('.button-variable-item-XS').click()
         cy.get('.button-variable-item-Red').click()
-        cy.get('.input-text').clear().type('0')
+        cy.get('.input-text').clear().type('2')
         cy.get('.single_add_to_cart_button').click()
 
+        cy.get('.tbay-woocommerce-breadcrumb > :nth-child(5) > a').click()
+        cy.adde2e('Hero Hoodie', 'S', 'Gray', 3)
 
+        cy.get('.tbay-woocommerce-breadcrumb > :nth-child(3) > a').click()
+        cy.e2e('Atomic Endurance Running Tee (Crew-Neck)', 'M', 'Red', '2')
 
-    });
+        cy.get('.tbay-woocommerce-breadcrumb > :nth-child(5)').click()
+        cy.e2e2('Ryker LumaTech™ Tee (Crew-neck)','M','Black','3')
 
+        cy.get('.dropdown-toggle > .mini-cart-items').click()
+        cy.get('#cart > .dropdown-menu > .widget_shopping_cart_content > .mini_cart_content > .mini_cart_inner > .mcart-border > .buttons > .view-cart').click()
+        cy.get('.checkout-button').click()
 
-    it('Deve fazer um pedido na loja Ebac Shop de ponta a ponta - Usando dados customizados ', () => {
-
-        cy.adde2e('Arcadio Gym Short', 32, 'Red', 3)
-
-
-    });
-
-
-    it('Deve fazer um pedido na loja Ebac Shop de ponta a ponta - Usando dados customizados', () => {
-
-        cy.e2e('Atlas Fitness Tank', 'XS', 'Blue', 4)
-
-
-    });
-
-    it('Deve fazer um pedido na loja Ebac Shop de ponta a ponta- Usando Page objects', () => {
-        e2ePage.addProdutoCar('Ajax Full-Zip Sweatshir', 'S', 'Green', 5)
-
-
-    });
-
-
-    it('Deve fazer chekout com sucesso - Usando arquivo de dados ', () => {
         e2ePage.editarcheckout(
             dadose2e[0].nome,
             dadose2e[0].sobrenome,
+
             dadose2e[0].empresa,
             dadose2e[0].pais,
             dadose2e[0].endereço,
@@ -72,9 +58,23 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
             dadose2e[0].email
         )
 
-        cy.get('.woocommerce-message').should('contain', 'Endereço alterado com sucesso.')
+        cy.get('#payment_method_cod').click()
+        cy.get('#terms').click()
+        cy.get('#place_order').click()
+        cy.get('.page-title').should('contain','PEDIDO RECEBIDO')
 
+
+
+
+       
     });
+
+
+    
+
+    
+
+    
 
 
 })

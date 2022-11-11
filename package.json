@@ -12,19 +12,21 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/ebacgus/testes-e2e-ebac-shop.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "http://lojaebac.ebaconline.art.br"
+    "url": ""
   },
   "homepage": "",
   "devDependencies": {
-    "cypress": "^10.10.0"
+    "cypress": "^10.10.0",
+    "cypress-mochawesome-reporter": "^3.2.3"
   },
   "dependencies": {
     "faker": "^5.5.3"
   }
+
 }
