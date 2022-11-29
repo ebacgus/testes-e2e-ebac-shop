@@ -33,49 +33,20 @@ Cypress.Commands.add('login', (usuario, senha, produto) => {
     cy.get('.woocommerce-form > .button').click()
 });
 
-Cypress.Commands.add('adde2e', (produto, tamanho , cor , quantidade) => {  
+Cypress.Commands.add('adde2e', (produto, tamanho, cor, quantidade) => {
 
-                                                                                                                                                                                                                                                                                                                                        
-                                                            
+
+
     cy.get('[class="product-block grid"]')
     .contains(produto).click()
-        cy.get('.button-variable-item-'+ tamanho).click()
-        cy.get('.button-variable-item-'+ cor).click()
-        cy.get('.input-text').clear().type(quantidade)
-        cy.get('.single_add_to_cart_button').click()
+    cy.get('.button-variable-item-' + tamanho).click()
+    cy.get('.button-variable-item-' + cor).click()
+    cy.get('.input-text').clear().type(quantidade)
+    cy.get('.single_add_to_cart_button').click()
 
- 
+
 
 })
-
-    
-
-Cypress.Commands.add('e2e', (produto, tamanho , cor , quantidade) => {  
-
-    
-    
-    cy.get('[class="product-block grid"]')
-    cy.contains(produto).click()
-        cy.get('.button-variable-item-'+ tamanho).click()
-        cy.get('.button-variable-item-'+ cor).click()
-        cy.get('.input-text').clear().type(quantidade)
-        cy.get('.single_add_to_cart_button').click()
-
-    })
-
-
-    Cypress.Commands.add('e2e2', (produto, tamanho , cor , quantidade) => {  
-
-    
-    
-    cy.get('[class="product-block grid"]')
-    cy.contains(produto).click()
-        cy.get('.button-variable-item-'+ tamanho).click()
-        cy.get('.button-variable-item-'+ cor).click()
-        cy.get('.input-text').clear().type(quantidade)
-        cy.get('.single_add_to_cart_button').click()
-
-    })
 
 
 
